@@ -7,8 +7,7 @@ import java.util.Set;
 
 public class Schaak {
 	
-	private Bord bord = new Bord();
-	
+	private Bord bord ;
 	private Positie GOAL = new Positie(0,7);
 	
 	private List<Schaakstuk> oplossing;// = new ArrayList<Schaakstuk>();
@@ -17,16 +16,23 @@ public class Schaak {
 	
 	private Schaakstuk stuk;
 	
-	public Schaak(Schaakstuk stuk) {
-		this.stuk = stuk;
-		this.stuk.setBord(bord);
+	public Schaak() {
+		
+		this.bord = new Bord();
+		this.stuk = new Paard(this.bord, new Positie(7,0));
 	}
 	
 	
 	public void zoekPad() {
 		
-		oplossing = dfs(new Paard(bord, new Positie(7,7)), new HashSet<Schaakstuk>());
+		oplossing = dfs(stuk, new HashSet<Schaakstuk>());
 		
+	}
+	
+	public void drukOplossingAf(){
+		for(Schaakstuk stuk : oplossing) {
+			System.out.println(stuk);
+		}
 	}
 	
 	public List<Schaakstuk> dfs(Schaakstuk stuk, Set<Schaakstuk> bezocht) {

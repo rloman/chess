@@ -5,8 +5,6 @@ import java.util.Set;
 
 public class Paard extends Schaakstuk {
 	
-	private Bord bord;
-	
 	
 	public Paard(Bord bord, Positie pos) {
 		super(bord, pos);

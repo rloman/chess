@@ -4,17 +4,22 @@ import java.util.Set;
 
 public abstract class Schaakstuk {
 	
-	private Bord bord;
+	public Bord bord;
 	
 	private Positie pos;
 	
 	public abstract Set<Schaakstuk> buurknopen();
-
-	public void setBord(Bord bord) {
-		this.bord = bord;
+	
+	@Override
+	public String toString() {
+		
+		return "("+pos.getxCoord()+","+pos.getyCoord()+")";
 	}
 	
 	public Schaakstuk(Bord bord, Positie pos) {
+		if(bord == null) {
+			System.out.println("Foutje");
+		}
 		this.bord = bord;
 		this.pos = pos;
 		
