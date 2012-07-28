@@ -19,7 +19,7 @@ public class Schaak {
 	public Schaak() {
 		
 		this.bord = new Bord();
-		this.stuk = new Paard(this.bord, new Positie(7,0));
+		this.stuk = new Pion(this.bord, new Positie(7,7));
 	}
 	
 	

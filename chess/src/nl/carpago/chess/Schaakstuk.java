@@ -8,6 +8,7 @@ public abstract class Schaakstuk {
 	
 	private Positie pos;
 	
+	//TODO Implement template method in subclasses
 	public abstract Set<Schaakstuk> buurknopen();
 	
 	@Override

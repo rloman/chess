@@ -18,6 +18,9 @@ public class Paard extends Schaakstuk {
 		int x = this.getPositie().getxCoord();
 		int y = this.getPositie().getyCoord();
 		
+		
+		
+		
 		if(x+1 < bord.getSize()) {
 			buren.add(new Paard(bord, new Positie(x+1,y)));
 		}
