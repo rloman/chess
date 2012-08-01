@@ -18,6 +18,9 @@ public class Paard extends Schaakstuk {
 		int x = this.getPositie().getxCoord();
 		int y = this.getPositie().getyCoord();
 		
+		x hier verder. Paard klopt niet.
+		Maar dat weet ik...
+		
 		
 		
 		

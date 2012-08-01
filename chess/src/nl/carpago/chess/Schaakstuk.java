@@ -8,6 +8,14 @@ public abstract class Schaakstuk {
 	
 	private Positie pos;
 	
+	
+	public Schaakstuk() {}
+	
+	public Schaakstuk(Bord bord, Positie pos) {
+		this.bord = bord;
+		this.pos = pos;
+	}
+	
 	//TODO Implement template method in subclasses
 	public abstract Set<Schaakstuk> buurknopen();
 	
@@ -15,15 +23,6 @@ public abstract class Schaakstuk {
 	public String toString() {
 		
 		return "("+pos.getxCoord()+","+pos.getyCoord()+")";
-	}
-	
-	public Schaakstuk(Bord bord, Positie pos) {
-		if(bord == null) {
-			System.out.println("Foutje");
-		}
-		this.bord = bord;
-		this.pos = pos;
-		
 	}
 	
 	public Positie getPositie(){
@@ -55,6 +54,13 @@ public abstract class Schaakstuk {
 		return true;
 	}
 	
+	public void setBord(Bord bord) {
+		this.bord = bord;
+	}
 	
+	
+	public void setPositie(Positie pos) {
+		this.pos = pos;
+	}
 	
 }

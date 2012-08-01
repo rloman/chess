@@ -1,8 +1,12 @@
 package nl.carpago.chess;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 public class Schaak {
@@ -19,14 +23,15 @@ public class Schaak {
 	public Schaak() {
 		
 		this.bord = new Bord();
-		this.stuk = new Pion(this.bord, new Positie(7,7));
+		this.stuk = new Toren(this.bord, new Positie(7,7));
 	}
 	
 	
 	public void zoekPad() {
 		
-		oplossing = dfs(stuk, new HashSet<Schaakstuk>());
+		// oplossing = dfs(stuk, new HashSet<Schaakstuk>());
 		
+		oplossing = bfs(this.stuk, this.GOAL);
 	}
 	
 	public void drukOplossingAf(){
@@ -61,6 +66,48 @@ public class Schaak {
 		
 	}
 	
+	public List<Schaakstuk> bfs(Schaakstuk vanaf, Positie target) {
+		Map <Schaakstuk, Schaakstuk> discoveredBy = new HashMap<Schaakstuk, Schaakstuk>();
+		List<Schaakstuk> result = new ArrayList<Schaakstuk>();
+		
+		if(vanaf.getPositie().equals(target)) {
+			result.add(vanaf);
+			
+			return result;
+		}
+		
+		Set<Positie> bezocht = new HashSet<Positie>();
+		Queue<Schaakstuk> q = new LinkedList<Schaakstuk>();
+		q.add(vanaf);
+		
+		Schaakstuk stuk = null;
+		
+		outer:
+		while(!q.isEmpty()) {
+			Schaakstuk head = q.poll();
+			for(Schaakstuk buur : head.buurknopen()) {
+				discoveredBy.put(buur, head);
+				if(buur.getPositie().equals(target)) {
+					stuk = buur;
+					break outer;
+				}
+				if(!bezocht.contains(buur.getPositie())) {
+					q.add(buur);
+					bezocht.add(buur.getPositie());
+				}
+			}
+		}
+		
+		result.add(stuk);
+		
+		while(!stuk.equals(vanaf)) {
+			stuk = discoveredBy.get(stuk);
+			result.add(stuk);
+		}
+		
+		return result;
+ 	}
+	
 	
 	
 	public boolean isGoal(Positie pos){
@@ -69,6 +116,12 @@ public class Schaak {
 	
 	public boolean goalIsReached(List<Schaakstuk> l) {
 		return !l.isEmpty();
+	}
+	
+	public void addSchaakstuk(Schaakstuk schaakstuk, Positie pos) {
+		this.stuk = schaakstuk;
+		schaakstuk.setBord(this.bord);
+		schaakstuk.setPositie(pos);
 	}
 
 }

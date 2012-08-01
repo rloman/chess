@@ -4,7 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Pion extends Schaakstuk {
-
+	
+	
 	public Pion(Bord bord, Positie pos) {
 		super(bord, pos);
 	}
