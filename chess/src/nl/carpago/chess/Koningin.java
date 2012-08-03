@@ -3,22 +3,23 @@ package nl.carpago.chess;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Loper extends Schaakstuk {
-
-	public Loper(Bord bord, Positie pos) {
+public class Koningin extends Schaakstuk {
+	
+	public Koningin(Bord bord, Positie pos) {
 		super(bord, pos);
 	}
 
 	@Override
 	public Set<Schaakstuk> buurknopen() {
-
+		
 		Set<Schaakstuk> buren = new HashSet<Schaakstuk>();
 
 		int x = this.getPositie().getxCoord();
 		int y = this.getPositie().getyCoord();
-
-		int[][] moves = new int[][] { { -1, -1 }, { -1, 1 }, { 1, -1 }, { 1, 1 } };
-
+		
+		
+		int[][] moves = new int[][]{{-1,0},{-1,-1},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+		
 		for (int[] move : moves) {
 			for (int i = 1; i <= 8; i++) {
 				int deltaX = i * move[0];
@@ -27,13 +28,12 @@ public class Loper extends Schaakstuk {
 				if (x + deltaX < bord.getSize() && x + deltaX >= 0) {
 					if (y + deltaY < bord.getSize() && y + deltaY >= 0) {
 
-						buren.add(new Loper(bord, new Positie(x + deltaX, y + deltaY)));
-						/*
-						 * System.out.println("<knoop>");
-						 * System.out.println(this); System.out.println(new
-						 * Loper(bord, new Positie(x+deltaX, y+deltaY)));
-						 * System.out.println("</knoop>");
-						 */
+						buren.add(new Koningin(bord, new Positie(x + deltaX, y + deltaY)));
+						
+						// System.out.println("<knoop>");
+						//  System.out.println(this); System.out.println(new Koningin(bord, new Positie(x+deltaX, y+deltaY)));
+						  //System.out.println("</knoop>");
+						 
 
 					}
 				}
@@ -41,7 +41,7 @@ public class Loper extends Schaakstuk {
 			}
 
 		}
-
+		
 		return buren;
 	}
 

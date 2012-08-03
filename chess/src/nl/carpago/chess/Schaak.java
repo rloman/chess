@@ -12,18 +12,16 @@ import java.util.Set;
 public class Schaak {
 	
 	private Bord bord ;
-	private Positie GOAL = new Positie(1,7);
+	private Positie GOAL = new Positie(0,7);
 	
 	private List<Schaakstuk> oplossing;// = new ArrayList<Schaakstuk>();
-	
-	
 	
 	private Schaakstuk stuk;
 	
 	public Schaak() {
 		
 		this.bord = new Bord();
-		this.stuk = new Loper(this.bord, new Positie(5,5));
+		this.stuk = new Koning(this.bord, new Positie(3,0));
 	}
 	
 	
