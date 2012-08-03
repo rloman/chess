@@ -22,7 +22,7 @@ public abstract class Schaakstuk {
 	@Override
 	public String toString() {
 		
-		return "("+pos.getxCoord()+","+pos.getyCoord()+")";
+		return this.getClass().toString() +"op positie ("+pos.getxCoord()+","+pos.getyCoord()+")";
 	}
 	
 	public Positie getPositie(){

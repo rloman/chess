@@ -1,24 +1,24 @@
 package nl.carpago.chess;
 
 public class Positie {
-	
+
 	private int xCoord;
 	private int yCoord;
+
 	public int getxCoord() {
 		return xCoord;
 	}
+
 	public int getyCoord() {
 		return yCoord;
 	}
-	
-	
-	
-	
+
 	public Positie(int xCoord, int yCoord) {
 		super();
 		this.xCoord = xCoord;
 		this.yCoord = yCoord;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -27,6 +27,7 @@ public class Positie {
 		result = prime * result + yCoord;
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -41,5 +42,10 @@ public class Positie {
 		if (yCoord != other.yCoord)
 			return false;
 		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "("+this.getxCoord()+","+this.getyCoord()+")";
 	}
 }

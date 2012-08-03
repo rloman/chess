@@ -23,7 +23,7 @@ public class Schaak {
 	public Schaak() {
 		
 		this.bord = new Bord();
-		this.stuk = new Pion(this.bord, new Positie(7,7));
+		this.stuk = new Paard(this.bord, new Positie(7,0));
 	}
 	
 	
@@ -84,29 +84,40 @@ public class Schaak {
 		Queue<Schaakstuk> q = new LinkedList<Schaakstuk>();
 		q.add(vanaf);
 		
-		Schaakstuk stuk = vanaf;
+		Schaakstuk stuk = null;
 		
 		outer:
 		while(!q.isEmpty()) {
 			Schaakstuk head = q.poll();
 			for(Schaakstuk buur : head.buurknopen()) {
-				discoveredBy.put(buur, head);
+				
 				if(buur.getPositie().equals(target)) {
+					discoveredBy.put(buur, head);
 					isFound = true;
 					stuk = buur;
+					//System.out.println(buur);
 					break outer;
 				}
 				if(!bezocht.contains(buur.getPositie())) {
+					discoveredBy.put(buur, head);
 					q.add(buur);
 					bezocht.add(buur.getPositie());
 				}
 			}
 		}
 		
-		if(isFound) result.add(stuk);
-		while(!vanaf.equals(stuk)) {
+		if(isFound) {
+			result.add(vanaf);
+		}
+		System.out.println("map:"+discoveredBy);
+		System.out.println("Hier ben ik ...");
+		while(!vanaf.equals(stuk) && !(stuk == null)) {
+			System.out.println("vanaf:"+vanaf);
+			System.out.println("stuk:"+stuk);
 			
+			System.out.println("looping ...");
 			stuk = discoveredBy.get(stuk);
+			
 			result.add(0, stuk);
 			
 		}
