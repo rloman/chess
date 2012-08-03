@@ -23,7 +23,7 @@ public class Schaak {
 	public Schaak() {
 		
 		this.bord = new Bord();
-		this.stuk = new Toren(this.bord, new Positie(7,7));
+		this.stuk = new Pion(this.bord, new Positie(7,7));
 	}
 	
 	
@@ -35,6 +35,9 @@ public class Schaak {
 	}
 	
 	public void drukOplossingAf(){
+		if(oplossing == null || oplossing.isEmpty()) {
+			System.out.println("Er is geen oplossing mogelijk!");
+		}
 		for(Schaakstuk stuk : oplossing) {
 			System.out.println(stuk);
 		}
@@ -69,6 +72,7 @@ public class Schaak {
 	public List<Schaakstuk> bfs(Schaakstuk vanaf, Positie target) {
 		Map <Schaakstuk, Schaakstuk> discoveredBy = new HashMap<Schaakstuk, Schaakstuk>();
 		List<Schaakstuk> result = new ArrayList<Schaakstuk>();
+		boolean isFound = false;
 		
 		if(vanaf.getPositie().equals(target)) {
 			result.add(vanaf);
@@ -80,7 +84,7 @@ public class Schaak {
 		Queue<Schaakstuk> q = new LinkedList<Schaakstuk>();
 		q.add(vanaf);
 		
-		Schaakstuk stuk = null;
+		Schaakstuk stuk = vanaf;
 		
 		outer:
 		while(!q.isEmpty()) {
@@ -88,6 +92,7 @@ public class Schaak {
 			for(Schaakstuk buur : head.buurknopen()) {
 				discoveredBy.put(buur, head);
 				if(buur.getPositie().equals(target)) {
+					isFound = true;
 					stuk = buur;
 					break outer;
 				}
@@ -98,11 +103,12 @@ public class Schaak {
 			}
 		}
 		
-		result.add(stuk);
-		
-		while(!stuk.equals(vanaf)) {
+		if(isFound) result.add(stuk);
+		while(!vanaf.equals(stuk)) {
+			
 			stuk = discoveredBy.get(stuk);
-			result.add(stuk);
+			result.add(0, stuk);
+			
 		}
 		
 		return result;
