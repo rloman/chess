@@ -21,7 +21,7 @@ public class Paard extends Schaakstuk {
 
 			int deltaX = moves[0];
 			int deltaY = moves[1];
-			System.out.println(new Paard(bord, new Positie(x + deltaX, y + deltaY)));
+			//System.out.println(new Paard(bord, new Positie(x + deltaX, y + deltaY)));
 			if (x + deltaX < bord.getSize() && x + deltaX >= 0) {
 				if (y + deltaY < bord.getSize() && y + deltaY >= 0) {
 					buren.add(new Paard(bord, new Positie(x + deltaX, y + deltaY)));
@@ -30,8 +30,8 @@ public class Paard extends Schaakstuk {
 			}
 
 		}
-		System.out.println("De buren van:"+this.getPositie()+" zijn:");
-		System.out.println("buren:"+buren);
+		//System.out.println("De buren van:"+this.getPositie()+" zijn:");
+		//System.out.println("buren:"+buren);
 
 		return buren;
 	}
