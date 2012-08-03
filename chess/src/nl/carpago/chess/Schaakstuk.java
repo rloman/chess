@@ -8,12 +8,14 @@ public abstract class Schaakstuk {
 	
 	private Positie pos;
 	
-	
-	public Schaakstuk() {}
-	
 	public Schaakstuk(Bord bord, Positie pos) {
 		this.bord = bord;
 		this.pos = pos;
+	}
+	
+	public Schaakstuk() {
+		
+		
 	}
 	
 	//TODO Implement template method in subclasses

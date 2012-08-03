@@ -8,6 +8,10 @@ public class Koning extends Schaakstuk {
 	public Koning(Bord bord, Positie pos) {
 		super(bord, pos);
 	}
+	
+	public Koning() {
+		
+	}
 
 	@Override
 	public Set<Schaakstuk> buurknopen() {

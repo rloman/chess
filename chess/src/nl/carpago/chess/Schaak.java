@@ -11,17 +11,15 @@ import java.util.Set;
 
 public class Schaak {
 	
-	private Bord bord ;
+	private Bord bord = new Bord();
 	private Positie GOAL = new Positie(0,7);
 	
 	private List<Schaakstuk> oplossing;// = new ArrayList<Schaakstuk>();
 	
-	private Schaakstuk stuk;
-	
 	public Schaak() {
 		
-		this.bord = new Bord();
-		this.stuk = new Koning(this.bord, new Positie(3,0));
+		Schaakstuk stuk = new Koning();
+		this.setStukAtPositie(stuk, new Positie(3,0));
 	}
 	
 	
@@ -29,7 +27,7 @@ public class Schaak {
 		
 		// oplossing = dfs(stuk, new HashSet<Schaakstuk>());
 		
-		oplossing = bfs(this.stuk, this.GOAL);
+		oplossing = bfs(bord.getStukAtPositie(new Positie(3,0)), this.GOAL);
 	}
 	
 	public void drukOplossingAf(){
@@ -125,10 +123,8 @@ public class Schaak {
 		return !l.isEmpty();
 	}
 	
-	public void addSchaakstuk(Schaakstuk schaakstuk, Positie pos) {
-		this.stuk = schaakstuk;
-		schaakstuk.setBord(this.bord);
-		schaakstuk.setPositie(pos);
+	public void setStukAtPositie(Schaakstuk schaakstuk, Positie pos) {
+		this.bord.setStukAtPositie(schaakstuk, pos);
 	}
 
 }
