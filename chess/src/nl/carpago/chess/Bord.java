@@ -6,6 +6,9 @@ public class Bord {
 
 	//private int[][] bord = new int[SIZE][SIZE];
 	
+	x wat ga ik verder doen ???
+			x ik zou maar gewoon de master branch onder GWT hangen...
+	
 	private Schaakstuk[][] posities = new Schaakstuk[SIZE][SIZE];
 	
 	public int getSize() {
