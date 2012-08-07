@@ -7,9 +7,6 @@ public class Main {
 		Schaak schaak = new Schaak();
 		schaak.zoekPad();
 		schaak.drukOplossingAf();
-		
-		
-
 	}
 
 }

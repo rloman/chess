@@ -8,6 +8,8 @@ public class Paard extends Schaakstuk {
 	public Paard(Bord bord, Positie pos) {
 		super(bord, pos);
 	}
+	
+	public Paard() {}
 
 	@Override
 	public Set<Schaakstuk> buurknopen() {

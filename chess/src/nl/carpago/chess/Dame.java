@@ -3,9 +3,9 @@ package nl.carpago.chess;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Koningin extends Schaakstuk {
+public class Dame extends Schaakstuk {
 	
-	public Koningin(Bord bord, Positie pos) {
+	public Dame(Bord bord, Positie pos) {
 		super(bord, pos);
 	}
 
@@ -28,7 +28,7 @@ public class Koningin extends Schaakstuk {
 				if (x + deltaX < bord.getSize() && x + deltaX >= 0) {
 					if (y + deltaY < bord.getSize() && y + deltaY >= 0) {
 
-						buren.add(new Koningin(bord, new Positie(x + deltaX, y + deltaY)));
+						buren.add(new Dame(bord, new Positie(x + deltaX, y + deltaY)));
 						
 						// System.out.println("<knoop>");
 						//  System.out.println(this); System.out.println(new Koningin(bord, new Positie(x+deltaX, y+deltaY)));

@@ -20,6 +20,8 @@ public class Schaak {
 		
 		Schaakstuk stuk = new Koning();
 		this.setStukAtPositie(stuk, new Positie(3,0));
+		stuk = new Paard();
+		this.setStukAtPositie(stuk, new Positie(0,3));
 	}
 	
 	
@@ -27,7 +29,21 @@ public class Schaak {
 		
 		// oplossing = dfs(stuk, new HashSet<Schaakstuk>());
 		
-		oplossing = bfs(bord.getStukAtPositie(new Positie(3,0)), this.GOAL);
+		//oplossing = bfs(bord.getStukAtPositie(new Positie(3,0)), this.GOAL);
+		
+		zoekPad(bord);
+	}
+	
+	public void zoekPad(Bord bord) {
+		for(Schaakstuk stuk : bord) {
+			System.out.println("<oplossing>");
+			List<Schaakstuk> oplossing = this.bfs(stuk, this.GOAL);
+			for(Schaakstuk stukLocal : oplossing) {
+				System.out.println(stukLocal);
+			}
+			//System.out.println(oplossing);
+			System.out.println("</oplossing");
+		}
 	}
 	
 	public void drukOplossingAf(){

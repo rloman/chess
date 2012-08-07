@@ -1,13 +1,15 @@
 package nl.carpago.chess;
 
-public class Bord {
+import java.util.Iterator;
+
+public class Bord implements Iterable<Schaakstuk> {
 	
 	private final int SIZE = 8;
 
 	//private int[][] bord = new int[SIZE][SIZE];
 	
-	x wat ga ik verder doen ???
-			x ik zou maar gewoon de master branch onder GWT hangen...
+	//x wat ga ik verder doen ???
+		//	x ik zou maar gewoon de master branch onder GWT hangen...
 	
 	private Schaakstuk[][] posities = new Schaakstuk[SIZE][SIZE];
 	
@@ -33,7 +35,11 @@ public class Bord {
 	public void removeStukAtPositie(Positie pos) {
 		this.posities[pos.getxCoord()][pos.getyCoord()] = null;
 	}
-	
-	
 
+
+	@Override
+	public Iterator<Schaakstuk> iterator() {
+		
+		return new BordIterator(posities);
+	}
 }
