@@ -8,7 +8,6 @@ public abstract class Schaakstuk {
 	
 	private Positie pos;
 	
-	
 	public Schaakstuk() {}
 	
 	public Schaakstuk(Bord bord, Positie pos) {
@@ -20,7 +19,7 @@ public abstract class Schaakstuk {
 	
 	@Override
 	public String toString() {
-		this.bord.bord[pos.getxCoord()][pos.getyCoord()]  = 1;	
+		this.bord.setOccupied(pos);
 		this.bord.toon();
 		return this.getClass().getSimpleName() +" op positie ("+pos.getxCoord()+","+pos.getyCoord()+")";
 	}

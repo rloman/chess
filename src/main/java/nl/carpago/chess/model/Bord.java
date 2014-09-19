@@ -4,14 +4,10 @@ public class Bord {
 
 	private final int	SIZE	= 8;
 
-	public int[][]		bord	= new int[SIZE][SIZE];
+	private int[][]		bord	= new int[SIZE][SIZE];
 
 	public int getSize() {
 		return SIZE;
-	}
-
-	public int[][] getBord() {
-		return this.bord;
 	}
 
 	public void toon() {
@@ -26,11 +22,15 @@ public class Bord {
 		toonHeaderFooter();
 	}
 
-	public void toonHeaderFooter() {
+	private void toonHeaderFooter() {
 		final String separator = "=";
 		for (int i = 0; i < 8; i++) {
 			System.out.print(separator + separator);
 		}
 		System.out.println(separator);
+	}
+
+	public void setOccupied(Positie pos){
+		this.bord[pos.getxCoord()][pos.getyCoord()] = 1;
 	}
 }
