@@ -21,7 +21,7 @@ public abstract class Schaakstuk {
 	public String toString() {
 		this.bord.setOccupied(pos);
 		this.bord.toon();
-		return this.getClass().getSimpleName() +" op positie ("+pos.getxCoord()+","+pos.getyCoord()+")";
+		return this.getClass().getSimpleName() +" op positie ("+pos.getxCoord()+","+pos.getyCoord()+")\n";
 	}
 	
 	public Positie getPositie(){

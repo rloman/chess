@@ -14,7 +14,7 @@ public class Schaak {
 	public Schaak() {
 		
 		this.bord = new Bord();
-		this.stuk = new Koning(this.bord, new Positie(3,0));
+		this.stuk = new Paard(this.bord, new Positie(0,0));
 	}
 	
 	
