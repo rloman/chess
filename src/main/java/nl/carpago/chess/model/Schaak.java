@@ -61,9 +61,7 @@ public class Schaak {
 	}
 	
 	public List<Schaakstuk> bfs(Schaakstuk vanaf, Positie target) {
-		Map <Schaakstuk, Schaakstuk> discoveredBy = new HashMap<Schaakstuk, Schaakstuk>();
 		List<Schaakstuk> result = new ArrayList<Schaakstuk>();
-		boolean isFound = false;
 		
 		if(vanaf.getPositie().equals(target)) {
 			result.add(vanaf);
@@ -71,15 +69,16 @@ public class Schaak {
 			return result;
 		}
 		
+		Map <Schaakstuk, Schaakstuk> discoveredBy = new HashMap<Schaakstuk, Schaakstuk>();
+		boolean isFound = false;
 		Set<Positie> bezocht = new HashSet<Positie>();
-		Queue<Schaakstuk> q = new LinkedList<Schaakstuk>();
-		q.add(vanaf);
-		
+		Queue<Schaakstuk> agenda = new LinkedList<Schaakstuk>();
+		agenda.add(vanaf);
 		Schaakstuk stuk = null;
 		
 		outer:
-		while(!q.isEmpty()) {
-			Schaakstuk head = q.poll();
+		while(!agenda.isEmpty()) {
+			Schaakstuk head = agenda.poll();
 			for(Schaakstuk buur : head.buurknopen()) {
 				
 				if(buur.getPositie().equals(target)) {
@@ -91,7 +90,7 @@ public class Schaak {
 				}
 				if(!bezocht.contains(buur.getPositie())) {
 					discoveredBy.put(buur, head);
-					q.add(buur);
+					agenda.add(buur);
 					bezocht.add(buur.getPositie());
 				}
 			}

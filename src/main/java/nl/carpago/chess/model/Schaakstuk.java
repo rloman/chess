@@ -16,12 +16,12 @@ public abstract class Schaakstuk {
 		this.pos = pos;
 	}
 	
-	//TODO Implement template method in subclasses
 	public abstract Set<Schaakstuk> buurknopen();
 	
 	@Override
 	public String toString() {
-		
+		this.bord.bord[pos.getxCoord()][pos.getyCoord()]  = 1;	
+		this.bord.toon();
 		return this.getClass().getSimpleName() +" op positie ("+pos.getxCoord()+","+pos.getyCoord()+")";
 	}
 	
@@ -62,5 +62,4 @@ public abstract class Schaakstuk {
 	public void setPositie(Positie pos) {
 		this.pos = pos;
 	}
-	
 }
