@@ -18,6 +18,10 @@ public class Positie {
 		this.xCoord = xCoord;
 		this.yCoord = yCoord;
 	}
+	
+	public Positie(Lokatie horizontaleLocatie, int verticaleLocatie) {
+		this(8-verticaleLocatie, horizontaleLocatie.ordinal());
+	}
 
 	@Override
 	public int hashCode() {

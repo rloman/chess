@@ -19,13 +19,17 @@ public abstract class Schaakstuk {
 	
 	@Override
 	public String toString() {
-		this.bord.setOccupied(pos);
 		this.bord.toon();
-		return this.getClass().getSimpleName() +" op positie ("+pos.getxCoord()+","+pos.getyCoord()+")\n";
+		Lokatie locatie = Lokatie.values()[pos.getyCoord()];
+		return this.getClass().getSimpleName() +" op positie ("+locatie+","+(8-pos.getxCoord())+")\n";
 	}
 	
 	public Positie getPositie(){
 		return this.pos;
+	}
+	
+	public void setOccupied() {
+		this.bord.setOccupied(this.pos);
 	}
 
 	@Override

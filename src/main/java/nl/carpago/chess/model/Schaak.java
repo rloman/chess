@@ -5,7 +5,7 @@ import java.util.*;
 public class Schaak {
 	
 	private Bord bord ;
-	private Positie GOAL = new Positie(0,7);
+	private Positie GOAL = new Positie(Lokatie.A, 1);
 	
 	private List<Schaakstuk> oplossing;// = new ArrayList<Schaakstuk>();
 	
@@ -14,13 +14,11 @@ public class Schaak {
 	public Schaak() {
 		
 		this.bord = new Bord();
-		this.stuk = new Paard(this.bord, new Positie(0,0));
+		this.stuk = new Paard(this.bord, new Positie(Lokatie.H, 8));
 	}
 	
 	
 	public void zoekPad() {
-		
-		// oplossing = dfs(stuk, new HashSet<Schaakstuk>());
 		
 		oplossing = bfs(this.stuk, this.GOAL);
 	}
@@ -29,9 +27,13 @@ public class Schaak {
 		if(oplossing == null || oplossing.isEmpty()) {
 			System.out.println("Er is geen oplossing mogelijk!");
 		}
+		int i = 0;
 		for(Schaakstuk stuk : oplossing) {
+			stuk.setOccupied(); // stuk zet plek op array bord op 1
+			System.out.println("Zet:" + ++i);
 			System.out.println(stuk);
 		}
+		System.out.println("Aantal zetten nodig:"+i);
 	}
 	
 	public List<Schaakstuk> dfs(Schaakstuk localstuk, Set<Schaakstuk> bezocht) {
