@@ -27,10 +27,10 @@ public class Schaak {
 		if(oplossing == null || oplossing.isEmpty()) {
 			System.out.println("Er is geen oplossing mogelijk!");
 		}
-		int i = 0;
+		int i = -1;
 		for(Schaakstuk stuk : oplossing) {
 			stuk.setOccupied(); // stuk zet plek op array bord op 1
-			System.out.println("Zet:" + ++i);
+			System.out.println("Zet:" + ++ i);
 			System.out.println(stuk);
 		}
 		System.out.println("Aantal zetten nodig:"+i);

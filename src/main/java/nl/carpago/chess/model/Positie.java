@@ -13,7 +13,8 @@ public class Positie {
 		return yCoord;
 	}
 
-	public Positie(int xCoord, int yCoord) {
+	// for converting the chess notation to mathematical matrix notation (which I prefer in this case)
+	Positie(int xCoord, int yCoord) {
 		super();
 		this.xCoord = xCoord;
 		this.yCoord = yCoord;
@@ -48,8 +49,10 @@ public class Positie {
 		return true;
 	}
 	
+	// Lokatie locatie = Lokatie.values()[pos.getyCoord()];
+	//  " op positie ("+locatie+","+(8-pos.getxCoord())+")\n";
 	@Override
 	public String toString() {
-		return "("+this.getxCoord()+","+this.getyCoord()+")";
+		return " op positie ("+Lokatie.values()[this.getyCoord()]+","+(8-this.getxCoord())+")";
 	}
 }

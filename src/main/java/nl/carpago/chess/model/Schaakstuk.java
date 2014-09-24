@@ -20,8 +20,7 @@ public abstract class Schaakstuk {
 	@Override
 	public String toString() {
 		this.bord.toon();
-		Lokatie locatie = Lokatie.values()[pos.getyCoord()];
-		return this.getClass().getSimpleName() +" op positie ("+locatie+","+(8-pos.getxCoord())+")\n";
+		return this.getClass().getSimpleName() +pos+"\n";
 	}
 	
 	public Positie getPositie(){
