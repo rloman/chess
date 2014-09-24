@@ -5,16 +5,16 @@ import java.util.*;
 public class Schaak {
 	
 	private Bord bord ;
-	private Positie GOAL = new Positie(Lokatie.A, 1);
+	private Positie GOAL = new Positie(Lokatie.A, 2);
 	
-	private List<Schaakstuk> oplossing;// = new ArrayList<Schaakstuk>();
+	private List<Schaakstuk> oplossing;
 	
 	private Schaakstuk stuk;
 	
 	public Schaak() {
 		
 		this.bord = new Bord();
-		this.stuk = new Koning(this.bord, new Positie(Lokatie.H, 8));
+		this.stuk = new Paard(this.bord, new Positie(Lokatie.H, 8));
 	}
 	
 	
@@ -27,13 +27,14 @@ public class Schaak {
 		if(oplossing == null || oplossing.isEmpty()) {
 			System.out.println("Er is geen oplossing mogelijk!");
 		}
-		int i = -1;
+		int i = 0;
 		for(Schaakstuk stuk : oplossing) {
 			stuk.setOccupied(); // stuk zet plek op array bord op 1
-			System.out.println("Zet:" + ++ i);
+			System.out.println("Zet:" + i);
+			i++;
 			System.out.println(stuk);
 		}
-		System.out.println("Aantal zetten nodig:"+i);
+		System.out.println("Aantal zetten nodig:"+--i);
 	}
 	
 	public List<Schaakstuk> dfs(Schaakstuk localstuk, Set<Schaakstuk> bezocht) {
