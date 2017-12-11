@@ -41,16 +41,16 @@ public class Schaak {
 		}
 	}
 	
-	public List<Schaakstuk> dfs(Schaakstuk stuk, Set<Schaakstuk> bezocht) {
+	public List<Schaakstuk> dfs(Schaakstuk localstuk, Set<Schaakstuk> bezocht) {
 		List<Schaakstuk> result = new LinkedList<Schaakstuk>();
-		bezocht.add(stuk);
-		result.add(stuk);
+		bezocht.add(localstuk);
+		result.add(localstuk);
 		
-		if(this.isGoal(stuk.getPositie())) {
+		if(this.isGoal(localstuk.getPositie())) {
 			return result;
 		}
 		
-		Set<Schaakstuk> buurknopen = stuk.buurknopen(); 
+		Set<Schaakstuk> buurknopen = localstuk.buurknopen(); 
 		for(Schaakstuk buur : buurknopen) {
 			
 			if(!bezocht.contains(buur)) {
