@@ -1,1 +1,7 @@
 bin
+target
+*.jar
+*.class
+.idea
+*.iml
+
