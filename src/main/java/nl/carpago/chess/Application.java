@@ -9,9 +9,6 @@ public class Application {
 		Schaak schaak = new Schaak();
 		schaak.zoekPad();
 		schaak.drukOplossingAf();
-		
-		
-
 	}
 
 }

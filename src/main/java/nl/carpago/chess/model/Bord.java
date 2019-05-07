@@ -9,5 +9,4 @@ public class Bord {
 	public int getSize() {
 		return SIZE;
 	}
-
 }
