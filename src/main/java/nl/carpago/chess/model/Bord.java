@@ -1,5 +1,7 @@
 package nl.carpago.chess.model;
 
+import nl.carpago.chess.enums.Lokatie;
+
 public class Bord {
 
 	private final int SIZE = 8;

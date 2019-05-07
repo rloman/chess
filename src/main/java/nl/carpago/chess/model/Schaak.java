@@ -1,5 +1,7 @@
 package nl.carpago.chess.model;
 
+import nl.carpago.chess.enums.Lokatie;
+
 import java.util.*;
 
 public class Schaak {

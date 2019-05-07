@@ -1,5 +1,7 @@
 package nl.carpago.chess.model;
 
+import nl.carpago.chess.enums.Lokatie;
+
 public class Positie {
 
 	private int xCoord;
@@ -49,7 +51,7 @@ public class Positie {
 		return true;
 	}
 	
-	// Lokatie locatie = Lokatie.values()[pos.getyCoord()];
+	// nl.carpago.chess.enums.Lokatie locatie = nl.carpago.chess.enums.Lokatie.values()[pos.getyCoord()];
 	//  " op positie ("+locatie+","+(8-pos.getxCoord())+")\n";
 	@Override
 	public String toString() {
