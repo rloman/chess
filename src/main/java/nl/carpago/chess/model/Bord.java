@@ -1,4 +1,4 @@
-package nl.carpago.chess;
+package nl.carpago.chess.model;
 
 public class Bord {
 	
@@ -9,5 +9,4 @@ public class Bord {
 	public int getSize() {
 		return SIZE;
 	}
-
 }

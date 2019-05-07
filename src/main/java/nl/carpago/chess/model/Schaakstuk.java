@@ -1,4 +1,4 @@
-package nl.carpago.chess;
+package nl.carpago.chess.model;
 
 import java.util.Set;
 
